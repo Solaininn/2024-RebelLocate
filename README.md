@@ -1,5 +1,5 @@
 # Rebel Locate 🔍
-a UNLV-based geolocator, using a self-captured database of over 6000+ images. Utilizing machine learning algorithm, a dynamically trained Convolutional Neural Network, and extracted coordniate metadata for image recognition and scene labeling to accurately predict an image location.
+a UNLV-based geolocator, using a self-captured database of over 6000+ images. Utilizing a machine learning algorithm, a dynamically trained Convolutional Neural Network, and extracted coordinate metadata for image recognition and scene labeling to accurately predict an image location.
 
 🔗 **[Demo](https://docs.google.com/presentation/d/1KvvYFAokP8HvaATkJNQrT9pRTmb60Vqf/edit?rtpof=true&sd=true)**
 📄 **[Report](https://docs.google.com/document/d/17bAR715s4y0F84yz48RcYhYhvDnf9tYT5Q50nIaxMR4/edit?usp=sharing)** 
@@ -16,12 +16,12 @@ Each stage narrows the prediction space, improving both efficiency and classific
 
 ## 1. EXIF Metadata Extraction
 
-Every image contains embedded EXIF metadata which in turn holds hidden information for each photo, specifically the latitude and longitude for all photos. These coordinates are then extracted and converted into decimal format before being organized into a Pandas DataFrame alongside their corresponding building labels.
+Every image contains embedded EXIF metadata, which in turn holds hidden information for each photo, specifically the latitude and longitude for all photos. These coordinates are then extracted and converted into decimal format before being organized into a Pandas DataFrame alongside their corresponding building labels.
 
-- To visualize the collected dataset, Matplotlib was used to generate a scatter plot of all images and their locations across the UNLV campus as shown below.
+- To visualize the collected dataset, Matplotlib was used to generate a scatter plot of all images and their locations across the UNLV campus, as shown below.
 
 <p align="center">
-  <img src="test_images/ScatterPlot.png" width="700">
+  <img src="test_images/Scatterplot.jpg" width="700">
 </p>
 
 ## 2. K-Nearest Neighbors (KNN)
@@ -30,7 +30,7 @@ The extracted GPS coordinates are used to predict the building in which an image
 
 - A K-Nearest Neighbors classifier compares the input image coordinates against the existing dataset, assigning the building label based on nearby samples. K-Fold Cross Validation is performed to determine the optimal value of **K**, to then calculate the distance from the image coordinates and the newly found closest landmark.
 
-- Once KNN has indetified the most probable building, only the images related to said building will be used in the next stage of the module, CNN.
+- Once KNN has identified the most probable building, only the images related to said building will be used in the next stage of the module, CNN.
 
 ## 3. Convolutional Neural Network (CNN)
 
@@ -38,7 +38,7 @@ After the building has been predicted, Rebel Locate performs room type classific
 
 - The model utilizes **MIT's Places365 pretrained ResNet-18 weights** through transfer learning. Rather than training on the complete campus dataset, the CNN dynamically trains only using the predicted building's directory.
 
-- The number of output classes is predetermined for each building, and is automatically chosen by CNN after building identifiction is complete (for example: classroom, hallway, lounge, stairwell, etc.).
+- The number of output classes is predetermined for each building and is automatically chosen by CNN after building identification is complete (for example: classroom, hallway, lounge, stairwell, etc.).
 
 - An 80/20 training split is used, and both building and room classification accuracies are displayed after training.
 
