@@ -16,7 +16,7 @@ Each stage narrows the prediction space, improving both efficiency and classific
 
 ## 1. EXIF Metadata Extraction
 
-Every image contains embedded EXIF metadata, which in turn holds hidden information for each photo, specifically the latitude and longitude for all photos. These coordinates are then extracted and converted into decimal format before being organized into a Pandas DataFrame alongside their corresponding building labels.
+Every image contains embedded EXIF metadata, which in turn contains hidden information for each photo, specifically the latitude and longitude. These coordinates are then extracted and converted into decimal format before being organized into a Pandas DataFrame alongside their corresponding building labels.
 
 - To visualize the collected dataset, Matplotlib was used to generate a scatter plot of all images and their locations across the UNLV campus, as shown below.
 
@@ -28,7 +28,7 @@ Every image contains embedded EXIF metadata, which in turn holds hidden informat
 
 The extracted GPS coordinates are used to predict the building in which an image was captured.
 
-- A K-Nearest Neighbors classifier compares the input image coordinates against the existing dataset, assigning the building label based on nearby samples. K-Fold Cross Validation is performed to determine the optimal value of **K**, to then calculate the distance from the image coordinates and the newly found closest landmark.
+- A K-Nearest Neighbors classifier compares the input image coordinates against the existing dataset, assigning the building label based on nearby samples. K-Fold Cross Validation is performed to determine the optimal value of **K**, and then the distance from the image coordinates to the newly found closest landmark is calculated.
 
 - Once KNN has identified the most probable building, only the images related to said building will be used in the next stage of the module, CNN.
 
