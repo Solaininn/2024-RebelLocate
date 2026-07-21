@@ -1,5 +1,5 @@
 # Rebel Locate 🔍
-a UNLV-based geolocator, using a self-captured database of over 6000+ images. Utilizing a machine learning algorithm, a dynamically trained Convolutional Neural Network, and extracted coordinate metadata for image recognition and scene labeling to accurately predict an image location.
+A UNLV-based geolocator, using a self-captured database of over 6000+ images. Utilizing a machine learning algorithm, a dynamically trained Convolutional Neural Network, and extracted coordinate metadata for image recognition and scene labeling to accurately predict an image location.
 
 🔗 **[Demo](https://docs.google.com/presentation/d/1KvvYFAokP8HvaATkJNQrT9pRTmb60Vqf/edit?rtpof=true&sd=true)**
 📄 **[Report](https://docs.google.com/document/d/17bAR715s4y0F84yz48RcYhYhvDnf9tYT5Q50nIaxMR4/edit?usp=sharing)** 
